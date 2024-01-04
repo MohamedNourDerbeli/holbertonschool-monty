@@ -6,6 +6,7 @@ int file(char *file, stack_t **stack)
     unsigned int line_number = 1;
     char *line = NULL;
     char *cmd, *delim = "\n \t\r";
+
     if (!file)
     {
         fprintf(stderr, FILE_NOT_OPEN, file);
@@ -22,10 +23,7 @@ int file(char *file, stack_t **stack)
         cmd = strtok(line, delim);
         line_number++;
         if (cmd)
-        {
-            
-        }
-        
+            opcode(stack, cmd, line_number);
     }
     free(line);
     fclose(of);
