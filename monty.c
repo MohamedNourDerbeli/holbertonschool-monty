@@ -3,6 +3,7 @@
 void main(int argc, char **argv)
 {
     stack_t *stack;
+
     if (argc != 2)
     {
         fprintf(stderr, ARGUMENT_NOT_CORRECT);
