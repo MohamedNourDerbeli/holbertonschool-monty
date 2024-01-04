@@ -34,6 +34,7 @@ typedef struct instruction_s
         void (*f)(stack_t **stack, unsigned int line_number);
 } instruction_t;
 int file(char *file,stack_t **stack);
+void opcode(stack_t **stack, char *cmd, unsigned int line_number);
 void _push(stack_t **stack, unsigned int line_number);
 void _pop(stack_t **stack, unsigned int line_number);
 void _pint(stack_t **stack, unsigned int line_number);
