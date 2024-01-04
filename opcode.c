@@ -10,6 +10,7 @@ void opcode(stack_t **stack, char *cmd, unsigned int line_number)
         {"pop", _pop},
         {"swap", _swap},
         {NULL, NULL}};
+
     for (i = 0; ops[i].opcode; i++)
     {
         if (strcmp(ops[i].opcode, cmd) == 0)
