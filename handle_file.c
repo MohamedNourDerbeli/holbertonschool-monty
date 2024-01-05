@@ -3,7 +3,7 @@ int file(char *file, stack_t **stack)
 {
     FILE *of;
     size_t len, ret;
-    unsigned int line_number = 1;
+    unsigned int line_number = 0;
     char *line = NULL;
     char *cmd, *delim = "\n \t\r";
 
