@@ -18,7 +18,7 @@ void _push(stack_t **stack, unsigned int line_number)
 	op = strtok(NULL, DELIMS);
 	if (stack == NULL || op == NULL)
 	{
-		fprintf(stderr, " usage: push integer\n");
+		fprintf(stderr, "L%u: usage: push integer\n",line_number);
 		exit(EXIT_FAILURE);
 	}
 	node->n = line_number;
