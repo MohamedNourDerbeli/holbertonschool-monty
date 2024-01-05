@@ -27,5 +27,5 @@ int file(char *file, stack_t **stack)
     }
     free(line);
     fclose(of);
-    return (0);
+    return (EXIT_FAILURE);
 }
