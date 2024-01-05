@@ -5,7 +5,7 @@
  * @argv: Array of strings containing the command line arguments.
  * Return: EXIT_SUCCESS or EXIT_FAILURE.
  **/
-void main(int argc, char **argv)
+int main(int argc, char **argv)
 {
 	stack_t *stack = NULL;
 
