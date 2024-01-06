@@ -11,7 +11,7 @@
 #include <limits.h>
 #include <ctype.h>
 #define ARGUMENT_NOT_CORRECT "USAGE: monty file\n"
-#define FILE_NOT_OPEN "Error: Can't open file %s\n<file>"
+#define FILE_NOT_OPEN "Error: Can't open file %s\n"
 #define INVAILD_INSTRUCTION "L%u: unknown instruction %s\n"
 #define MALLOC_FAILIED "Error: malloc failed\n"
 /**
