@@ -25,5 +25,4 @@ void _add(stack_t **stack, unsigned int line_number)
 	h->next->n = sum;
 	*stack = h->next;
 	free(h);
-	(*stack)->prev = NULL;
 }
