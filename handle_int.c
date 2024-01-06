@@ -11,6 +11,12 @@ int _strtol(char *op, unsigned int line_number)
 	long ret;
 
 	errno = 0;
+	if (op == NULL)
+	{
+		fprintf(stderr, "L%d: usage: push integer\n", line_number);
+		exit(EXIT_FAILURE);
+	}
+
 	ret = strtol(op, &ptr, 10);
 	if ((errno == ERANGE && (ret == LONG_MAX || ret == LONG_MIN))
 				|| (errno != 0 && ret == 0))
@@ -27,10 +33,5 @@ int _strtol(char *op, unsigned int line_number)
 			fprintf(stderr, "L%d: usage: push integer\n", line_number);
 			exit(EXIT_FAILURE);
 		}
-	if (op[0] == '\0')
-	{
-		fprintf(stderr, "L%d: usage: push integer\n", line_number);
-		exit(EXIT_FAILURE);
-	}
 	return (ret);
 }
