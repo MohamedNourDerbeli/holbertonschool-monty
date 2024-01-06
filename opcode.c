@@ -14,6 +14,7 @@ void opcode(stack_t **stack, char *cmd, unsigned int line_number)
 		{"pint", _pint},
 		{"pop", _pop},
 		{"add", _add},
+		{"nop", _nop},
 		{NULL, NULL}};
 
 	for (i = 0; ops[i].opcode; i++)
