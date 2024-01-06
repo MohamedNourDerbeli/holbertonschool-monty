@@ -8,7 +8,7 @@ void _push(stack_t **stack, unsigned int line_number)
 {
 	stack_t *node = malloc(sizeof(stack_t));
 	char *op;
-	char *delims = "\n \t\r";
+	char *delims = "$\n \t\r";
 	int num;
 
 	if (node == NULL)
