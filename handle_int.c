@@ -12,7 +12,7 @@ int _strtol(char *op, unsigned int line_number)
 	long ret;
 	int has_non_digit = 0;
 
-	if (*op == '\0')
+	if (*op == '\0' || op == NULL)
 	{
 		fprintf(stderr, "L%d: usage: push integer\n", line_number);
 		exit(EXIT_FAILURE);
