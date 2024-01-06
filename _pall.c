@@ -8,10 +8,8 @@ void _pall(stack_t **stack, __attribute__((unused)) unsigned int line_number)
 {
 	stack_t *node = *stack;
 
-	if (stack == NULL || *stack == NULL)
-	{
+	if (stack == NULL)
 		exit(EXIT_FAILURE);
-	}
 	while (node != NULL)
 	{
 		printf("%d\n", node->n);
