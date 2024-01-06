@@ -23,6 +23,5 @@ void _add(stack_t **stack, unsigned int line_number)
 	h = *stack;
 	sum = h->n + h->next->n;
 	h->next->n = sum;
-	*stack = h->next;
-	free(h);
+	_pop(stack, line_number);
 }
