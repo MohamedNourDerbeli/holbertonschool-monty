@@ -14,7 +14,7 @@ int file(char *file, stack_t **stack)
 	char *cmd, *delim = "$\n \t\r";
 	FILE *of;
 
-	if (!file)
+	if (file == NULL)
 	{
 		fprintf(stderr, FILE_NOT_OPEN, file);
 		exit(EXIT_FAILURE);
