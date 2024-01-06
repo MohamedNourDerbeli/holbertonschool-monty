@@ -6,14 +6,23 @@
  **/
 void _add(stack_t **stack, unsigned int line_number)
 {
-	int tmp;
+	stack_t *h;
+	int len = 0, sum;
 
-	if (stack == NULL || (*stack)->next == NULL || *stack == NULL)
+	h = *stack;
+	while (h)
 	{
-		fprintf(stderr, "L%d: can't add, stack too short\n", line_number);
+		h = h->next;
+		len++;
+	}
+	if (len < 2)
+	{
+		fprintf(stderr, "L%d: can't add, stack too short\n",line_number);
 		exit(EXIT_FAILURE);
 	}
-	tmp = (*stack)->n;
-	_pop(stack, line_number);
-	(*stack)->n += tmp;
+	h = *stack;
+	sum = h->n + h->next->n;
+	h->next->n = sum;
+	*stack = h->next;
+	free(h);
 }
