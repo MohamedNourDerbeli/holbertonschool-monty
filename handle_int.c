@@ -9,20 +9,18 @@ int _strtol(char *op, unsigned int line_number)
 {
 	char *ptr;
 	long ret;
-	printf("%s", op);
+
 	ret = strtol(op, &ptr, 10);
 	if (ptr == op)
 	{
 		fprintf(stderr, "L%d: usage: push integer\n", line_number);
 		exit(EXIT_FAILURE);
 	}
-	printf("%s", op);
 	if (op[0] != '\0')
 		if (isdigit(op[0]) && *ptr != '\0')
 		{
 			fprintf(stderr, "L%d: usage: push integer\n", line_number);
 			exit(EXIT_FAILURE);
 		}
-	printf("%s", op);
 	return (ret);
 }
