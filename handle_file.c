@@ -7,28 +7,31 @@
  **/
 int file(char *file, stack_t **stack)
 {
-	size_t len;
-	ssize_t ret;
+	FILE *of;
+	size_t len, ret;
 	unsigned int line_number = 0;
 	char *line = NULL;
 	char *cmd, *delim = "$\n \t\r";
-	FILE *of;
 
-	of = fopen(file, "r");
-	if (file == NULL || of == NULL)
+	if (!file)
 	{
 		fprintf(stderr, FILE_NOT_OPEN, file);
 		exit(EXIT_FAILURE);
 	}
-	atexit(free_node);
-	while ((ret = getline(&line, &len, of)) != -1)
+	of = fopen(file, "r");
+	if (of == NULL)
+	{
+		fprintf(stderr, FILE_NOT_OPEN, file);
+		exit(EXIT_FAILURE);
+	}
+	while ((ret = getline(&line, &len, of) != -1))
 	{
 		cmd = strtok(line, delim);
 		line_number++;
-		if (cmd != NULL)
+		if (cmd)
 			opcode(stack, cmd, line_number);
 	}
 	free(line);
 	fclose(of);
-	exit(EXIT_SUCCESS);
+	exit(EXIT_FAILURE);
 }
