@@ -6,12 +6,13 @@
  **/
 void _pall(stack_t **stack, __attribute__((unused)) unsigned int line_number)
 {
-	stack_t *node;
+	stack_t *node = *stack;
 
-	node = *stack;
-	if (node == NULL)
+	if (stack == NULL || *stack == NULL)
+	{
+		fprintf(stderr, "Error: Stack is empty\n");
 		return;
-
+	}
 	while (node != NULL)
 	{
 		printf("%d\n", node->n);
