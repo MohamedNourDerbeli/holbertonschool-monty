@@ -36,6 +36,8 @@ typedef struct instruction_s
 	void (*f)(stack_t **stack, unsigned int line_number);
 } instruction_t;
 int file(char *file, stack_t **stack);
+void free_node(stack_t **stack);
+int _strtol(char *op, unsigned int line_number);
 void opcode(stack_t **stack, char *cmd, unsigned int line_number);
 void _push(stack_t **stack, unsigned int line_number);
 void _pop(stack_t **stack, unsigned int line_number);
