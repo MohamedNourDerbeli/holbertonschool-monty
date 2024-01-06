@@ -16,11 +16,6 @@ int _strtol(char *op, unsigned int line_number)
 		fprintf(stderr, "L%d: usage: push integer\n", line_number);
 		exit(EXIT_FAILURE);
 	}
-	if (op[0] != '\0')
-		if (isdigit(op[0]) && *ptr != '\0')
-		{
-			fprintf(stderr, "L%d: usage: push integer\n", line_number);
-			exit(EXIT_FAILURE);
-		}
+
 	return (ret);
 }
