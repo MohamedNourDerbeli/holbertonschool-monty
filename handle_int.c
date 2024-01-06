@@ -10,6 +10,7 @@ int _strtol(char *op, unsigned int line_number)
 	char *ptr;
 	long ret;
 
+	ret = strtol(op, &ptr, 10);
 	if (ptr == op)
 	{
 		fprintf(stderr, "L%d: usage: push integer\n", line_number);
