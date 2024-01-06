@@ -33,13 +33,6 @@ int file(char *file, stack_t **stack)
 		if (cmd != NULL)
 			opcode(stack, cmd, line_number);
 	}
-	if (ret == -1)
-	{
-		fprintf(stderr, FILE_NOT_OPEN, file);
-		fclose(of);
-		free(line);
-		exit(EXIT_FAILURE);
-	}
 	free(line);
 	fclose(of);
 	exit(EXIT_SUCCESS);
