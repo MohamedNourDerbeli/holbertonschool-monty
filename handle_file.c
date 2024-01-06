@@ -24,6 +24,7 @@ int file(char *file, stack_t **stack)
 		fprintf(stderr, FILE_NOT_OPEN, file);
 		exit(EXIT_FAILURE);
 	}
+	atexit(free_node);
 	while ((ret = getline(&line, &len, of) != -1))
 	{
 		cmd = strtok(line, delim);
