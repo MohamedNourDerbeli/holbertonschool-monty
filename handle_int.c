@@ -12,10 +12,11 @@ int _strtol(char *op, unsigned int line_number)
 
 	errno = 0;
 	ret = strtol(op, &ptr, 10);
-	if ((errno == ERANGE && (ret == LONG_MAX || ret == LONG_MIN)) || (errno != 0 && ret == 0))
+	if ((errno == ERANGE && (ret == LONG_MAX || ret == LONG_MIN))
+					|| (errno != 0 && ret == 0))
 		exit(EXIT_FAILURE);
 
-	if (ptr== op)
+	if (ptr == op)
 	{
 		fprintf(stderr, "L%d: usage: push integer\n", line_number);
 		exit(EXIT_FAILURE);
