@@ -19,7 +19,7 @@ int file(char *file, stack_t **stack)
 
 	if (file == NULL)
 	{
-		fprintf(stderr, "Error: File pointer is NULL\n");
+		fprintf(stderr, FILE_NOT_OPEN, file);
 		exit(EXIT_FAILURE);
 	}
 	of = fopen(file, "r");
@@ -39,7 +39,7 @@ int file(char *file, stack_t **stack)
 	}
 	if (ret == -1)
 	{
-		fprintf(stderr, "Error reading from file %s\n", file);
+		fprintf(stderr, FILE_NOT_OPEN, file);
 		fclose(of);
 		free(line);
 		exit(EXIT_FAILURE);
