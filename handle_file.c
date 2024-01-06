@@ -17,7 +17,7 @@ int file(char *file, stack_t **stack)
 
 	if (file == NULL)
 	{
-		fprintf(stderr, "Error: File path is NULL\n");
+		fprintf(stderr, FILE_NOT_OPEN, file);
 		exit(EXIT_FAILURE);
 	}
 
