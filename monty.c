@@ -8,7 +8,7 @@
 int main(int argc, char **argv)
 {
 	stack_t *head;
-	
+
 	stack_init(&head);
 	if (argc != 2)
 	{
