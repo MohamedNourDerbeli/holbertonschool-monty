@@ -42,8 +42,21 @@ typedef struct instruction_s
 	char *opcode;
 	void (*f)(stack_t **stack, unsigned int line_number);
 } instruction_t;
+/**
+ * struct glob_s - globally useful variables, all rolled into one
+ * @top: double pointer to top of stack
+ * @ops: double pointer to an instruction struct
+**/
+typedef struct glob_s
+{
+	stack_t **top;
+	instruction_t **ops;
+} glob_t;
+
+extern glob_t glob;
+void free_node(void);
+void stack_init(stack_t **head);
 int file(char *file, stack_t **stack);
-void free_node(stack_t **stack);
 int _strtol(char *op, unsigned int line_number);
 void opcode(stack_t **stack, char *cmd, unsigned int line_number);
 void _push(stack_t **stack, unsigned int line_number);
