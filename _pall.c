@@ -6,11 +6,7 @@
  **/
 void _pall(stack_t **stack, __attribute__((unused)) unsigned int line_number)
 {
-	stack_t *node;
-
-	node = *stack;
-	if (node == NULL)
-		return;
+	stack_t *node = *stack;
 
 	while (node != NULL)
 	{
