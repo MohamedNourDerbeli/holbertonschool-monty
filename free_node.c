@@ -11,7 +11,7 @@ void stack_init(stack_t **head)
 	glob.top = head;
 }
 /**
- * free_all - free all malloc'ed memory
+ * free_node - free all malloc'ed memory
  *     note: this is available "atexit", starting at
  *           getline loop
  **/
