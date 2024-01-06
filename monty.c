@@ -7,11 +7,14 @@
  **/
 int main(int argc, char **argv)
 {
-	stack_t *stack = NULL;
+	stack_t *head;
+	
+	stack_init(&head);
 	if (argc != 2)
 	{
 		fprintf(stderr, ARGUMENT_NOT_CORRECT);
 		exit(EXIT_FAILURE);
 	}
-	file(argv[1], &stack);
+	file(argv[1], &head);
+	exit(EXIT_SUCCESS);
 }
