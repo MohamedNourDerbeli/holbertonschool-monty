@@ -11,7 +11,7 @@ void _pall(stack_t **stack, __attribute__((unused)) unsigned int line_number)
 	if (stack == NULL || *stack == NULL)
 	{
 		fprintf(stderr, "Error: Stack is empty\n");
-		return;
+		exit(EXIT_FAILURE);
 	}
 	while (node != NULL)
 	{
