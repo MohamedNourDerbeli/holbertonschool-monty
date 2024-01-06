@@ -9,7 +9,7 @@ int file(char *file, stack_t **stack)
 {
 	size_t len;
 	ssize_t ret;
-	unsigned int line_number = 1;
+	unsigned int line_number = 0;
 	char *line = NULL;
 	char *cmd, *delim = "$\n \t\r";
 	FILE *of;
