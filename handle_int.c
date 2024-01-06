@@ -11,7 +11,7 @@ int _strtol(char *op, unsigned int line_number)
 	long ret;
 
 	ret = strtol(op, &ptr, 10);
-	if (ret== LONG_MAX|| ret== LONG_MIN)
+	if (ret == LONG_MAX || ret == LONG_MIN)
 		exit(EXIT_FAILURE);
 
 	if (op == ptr)
