@@ -7,11 +7,12 @@
  **/
 int file(char *file, stack_t **stack)
 {
-	FILE *of;
-	size_t len = 0, ret;
+	size_t len;
+	ssize_t ret;
 	unsigned int line_number = 0;
 	char *line = NULL;
 	char *cmd, *delim = "$\n \t\r";
+	FILE *of;
 
 	if (!file)
 	{
@@ -24,16 +25,15 @@ int file(char *file, stack_t **stack)
 		fprintf(stderr, FILE_NOT_OPEN, file);
 		exit(EXIT_FAILURE);
 	}
-	while ((ret = getline(&line, &len, of) != -1))
+	atexit(free_node);
+	while ((ret = getline(&line, &len, of)) != -1)
 	{
-		line_number++;
-		if (line[0] == '\n' || line[0] == '\0')
-			continue;
 		cmd = strtok(line, delim);
+		line_number++;
 		if (cmd)
 			opcode(stack, cmd, line_number);
 	}
 	free(line);
 	fclose(of);
-	return (EXIT_FAILURE);
+	return (EXIT_SUCCESS);
 }
