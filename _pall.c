@@ -8,7 +8,7 @@ void _pall(stack_t **stack, __attribute__((unused)) unsigned int line_number)
 {
 	stack_t *node;
 
-	if (stack == NULL)
+	if (stack == NULL || *stack == NULL)
 		exit(EXIT_FAILURE);
 	node = *stack;
 	while (node != NULL)
