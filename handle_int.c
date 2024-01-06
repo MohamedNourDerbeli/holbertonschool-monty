@@ -14,7 +14,7 @@ int _strtol(char *op, unsigned int line_number)
 
 	errno = 0;
 
-	if (op[0] == '\0')
+	if (op[0] == '-')
 	{
 		fprintf(stderr, "L%d: usage: push integer\n", line_number);
 		exit(EXIT_FAILURE);
