@@ -12,20 +12,9 @@ int _strtol(char *op, unsigned int line_number)
 	char *ptr;
 	long ret;
 
-	errno = 0;
 
 	ret = strtol(op, &ptr, 10);
 
-	if ((errno == ERANGE && (ret == LONG_MAX || ret == LONG_MIN)))
-	{
-		fprintf(stderr, "L%d: number out of range for long\n", line_number);
-		exit(EXIT_FAILURE);
-	}
-	else if (errno != 0 && ret == 0)
-	{
-		perror("strtol");
-		exit(EXIT_FAILURE);
-	}
 
 	if (*ptr != '\0')
 	{
