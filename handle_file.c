@@ -9,18 +9,13 @@ int file(char *file, stack_t **stack)
 {
 	size_t len;
 	ssize_t ret;
-	unsigned int line_number = 0;
+	unsigned int line_number = 1;
 	char *line = NULL;
 	char *cmd, *delim = "$\n \t\r";
 	FILE *of;
 
-	if (file == NULL)
-	{
-		fprintf(stderr, FILE_NOT_OPEN, file);
-		exit(EXIT_FAILURE);
-	}
 	of = fopen(file, "r");
-	if (of == NULL)
+	if (file == NULL || of == NULL)
 	{
 		fprintf(stderr, FILE_NOT_OPEN, file);
 		exit(EXIT_FAILURE);
