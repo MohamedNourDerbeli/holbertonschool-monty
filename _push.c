@@ -19,10 +19,10 @@ void _push(stack_t **stack, unsigned int line_number)
 	op = strtok(NULL, DELIMS);
 	if (stack == NULL || op == NULL)
 	{
-		fprintf(stderr, "L%u: usage: push integer\n",line_number);
+		fprintf(stderr, "L%u: usage: push integer\n", line_number);
 		exit(EXIT_FAILURE);
 	}
-	num= _strtol(op, line_number);
+	num = _strtol(op, line_number);
 	node->n = num;
 	node->prev = NULL;
 	node->next = *stack;
