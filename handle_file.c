@@ -1,4 +1,8 @@
 #include "monty.h"
+
+#define DELIMITERS "$\n \t\r"
+#define FILE_NOT_OPEN "Error: Can't open file %s\n"
+
 /**
  * file - Reads and executes commands from a file.
  * @file: File name to be read.
@@ -7,33 +11,48 @@
  **/
 int file(char *file, stack_t **stack)
 {
-	size_t len;
-	ssize_t ret;
-	unsigned int line_number = 0;
-	char *line = NULL;
-	char *cmd, *delim = "$\n \t\r";
-	FILE *of;
+    size_t len = 0;
+    ssize_t ret;
+    unsigned int line_number = 0;
+    char *line = NULL;
+    char *cmd;
+    FILE *of;
 
-	if (!file)
-	{
-		fprintf(stderr, FILE_NOT_OPEN, file);
-		exit(EXIT_FAILURE);
-	}
-	of = fopen(file, "r");
-	if (of == NULL)
-	{
-		fprintf(stderr, FILE_NOT_OPEN, file);
-		exit(EXIT_FAILURE);
-	}
-	atexit(free_node);
-	while ((ret = getline(&line, &len, of)) != -1)
-	{
-		cmd = strtok(line, delim);
-		line_number++;
-		if (cmd)
-			opcode(stack, cmd, line_number);
-	}
-	free(line);
-	fclose(of);
-	return (EXIT_SUCCESS);
+    if (file == NULL)
+    {
+        fprintf(stderr, "Error: File pointer is NULL\n");
+        exit(EXIT_FAILURE);
+    }
+
+    of = fopen(file, "r");
+    if (of == NULL)
+    {
+        fprintf(stderr, FILE_NOT_OPEN, file);
+        exit(EXIT_FAILURE);
+    }
+
+    atexit(free_node);
+
+    while ((ret = getline(&line, &len, of)) != -1)
+    {
+        line_number++;
+        cmd = strtok(line, DELIMITERS);
+
+        if (cmd != NULL)
+        {
+            opcode(stack, cmd, line_number);
+        }
+    }
+
+    if (ret == -1)
+    {
+        fprintf(stderr, "Error reading from file %s\n", file);
+        fclose(of);
+        free(line);
+        exit(EXIT_FAILURE);
+    }
+
+    free(line);
+    fclose(of);
+    return EXIT_SUCCESS;
 }
