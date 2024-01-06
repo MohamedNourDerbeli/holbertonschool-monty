@@ -23,16 +23,8 @@ int file(char *file, stack_t **stack)
 	atexit(free_node);
 	while ((ret = getline(&line, &len, of)) != -1)
 	{
-		line_number++;
-		if (ret == -1)
-		{
-			fprintf(stderr, FILE_NOT_OPEN, file);
-			fclose(of);
-			free(line);
-			exit(EXIT_FAILURE);
-		}
-
 		cmd = strtok(line, delim);
+		line_number++;
 		if (cmd != NULL)
 			opcode(stack, cmd, line_number);
 	}
