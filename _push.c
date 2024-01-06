@@ -9,6 +9,7 @@ void _push(stack_t **stack, unsigned int line_number)
 	stack_t *node = malloc(sizeof(stack_t));
 	char *op;
 	char *DELIMS = "\n \t\r";
+	int num;
 
 	if (node == NULL)
 	{
@@ -21,7 +22,8 @@ void _push(stack_t **stack, unsigned int line_number)
 		fprintf(stderr, "L%u: usage: push integer\n",line_number);
 		exit(EXIT_FAILURE);
 	}
-	node->n = line_number;
+	num= _strtol(op, line_number);
+	node->n = num;
 	node->prev = NULL;
 	node->next = *stack;
 	if (node->next != NULL)
