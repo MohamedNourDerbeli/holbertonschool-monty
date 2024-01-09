@@ -13,7 +13,7 @@ void _pstr(stack_t **stack, unsigned int line_number)
 	if (*stack == NULL)
 	{
 		putchar('\n');
-		exit(EXIT_FAILURE);
+		return;
 	}
 	tmp = *stack;
 	while (tmp != NULL)
@@ -25,5 +25,4 @@ void _pstr(stack_t **stack, unsigned int line_number)
 		tmp = tmp->next;
 	}
 	putchar('\n');
-	exit(EXIT_SUCCESS);
 }
