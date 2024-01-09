@@ -6,14 +6,14 @@
  */
 void _pstr(stack_t **stack, unsigned int line_number)
 {
+	stack_t *tmp;
 	int n;
 	(void)line_number;
-	stack_t *tmp;
 
-	if (*stack == NULL || stack == NULL)
+	if (*stack == NULL)
 	{
 		putchar('\n');
-		exit(0);
+		exit(EXIT_FAILURE);
 	}
 	tmp = *stack;
 	while (tmp != NULL)
@@ -25,4 +25,5 @@ void _pstr(stack_t **stack, unsigned int line_number)
 		tmp = tmp->next;
 	}
 	putchar('\n');
+	exit(EXIT_SUCCESS);
 }
