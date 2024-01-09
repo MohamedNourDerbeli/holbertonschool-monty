@@ -10,17 +10,14 @@ void _pstr(stack_t **stack, unsigned int line_number)
 
 	if (*stack == NULL || stack == NULL)
 	{
-		fprintf(stderr, "L%u: can't pchar, stack empty\n", line_number);
+		putchar('\n');
 		exit(EXIT_FAILURE);
 	}
 	while ((*stack) != NULL)
 	{
 		n = (*stack)->n;
-		if (n < 0 || n > 127)
-		{
-			fprintf(stderr, "L%u: can't pchar, value out of range\n", line_number);
-			exit(EXIT_FAILURE);
-		}
+		if (n <= 0 || n > 127)
+			break;
 		putchar(n);
 		(*stack) = (*stack)->next;
 	}
