@@ -1,6 +1,6 @@
 #include "monty.h"
 /**
- * _div - Divides the second top element of the stack by the top element.
+ * _mod - Computes the modulus of the second top element divided by the top element.
  * @stack: Double pointer to the beginning of the stack.
  * @line_number: Line number in the Monty file where the instruction appears.
  */
