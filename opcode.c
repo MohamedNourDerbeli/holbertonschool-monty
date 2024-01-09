@@ -20,6 +20,7 @@ void opcode(stack_t **stack, char *cmd, unsigned int line_number)
 		{"div", _div},
 		{"mul", _mul},
 		{"mod", _mod},
+		{"pchar", _pchar},
 		{NULL, NULL}};
 
 	for (i = 0; ops[i].opcode; i++)
